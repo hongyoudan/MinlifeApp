@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeActivity">
+
+    <!--用自定义的viewpager-->
+    <com.example.minlifeapp.view.FixedViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/commonTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/white"
+        android:elevation="30dp"
+        tl:tl_iconHeight="23dp"
+        tl:tl_iconWidth="23dp"
+        tl:tl_indicator_color="@color/color_2c97De"
+        tl:tl_indicator_height="0dp"
+        tl:tl_textSelectColor="@color/color_f09556"
+        tl:tl_textUnselectColor="@color/black"
+        tl:tl_textsize="12sp"
+        tl:tl_underline_color="@color/black"
+        tl:tl_underline_height="1dp" />
+
+</LinearLayout>

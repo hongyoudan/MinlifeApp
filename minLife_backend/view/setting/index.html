@@ -1,0 +1,458 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>闽生活App后台管理系统</title>
+    <meta name="description" content="这是一个 table 页面">
+    <meta name="keywords" content="table">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="assets/i/MinLifeAppLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
+
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+    <div class="am-topbar-brand">
+        <strong>管理后台</strong> <small> </small> <a onclick="logout()">退出登录</a> <a onclick="gomain()">返回首页</a>
+    </div>
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+            class="am-icon-bars"></span></button>
+</header>
+
+<div class="am-cf admin-main">
+    <!-- sidebar start -->
+    <div class="admin-sidebar">
+        <ul class="am-list admin-sidebar-list">
+
+            <li ><a href="/admin"><span class="am-icon-table"></span> 商品管理</a></li>
+            <li ><a href="/cate"><span class="am-icon-pencil-square-o"></span> 分类管理</a></li>
+            <li><a href="/bill"><span class="am-icon-pencil-square-o"></span> 订单管理</a></li>
+            <li style="background: #3bb4f2"><a href="/setting"><span class="am-icon-pencil-square-o"></span> 系统设置</a></li>
+
+
+        </ul>
+        <div class="am-panel am-panel-default admin-sidebar-panel">
+            <div class="am-panel-bd">
+                <p><span class="am-icon-bookmark"></span> 系统设置
+                <p>—— 请设置公告</p></p>
+                <textarea id="notifybox" cols="19" rows="5"></textarea>
+                <div style="text-align: right;margin-top: 10px">
+                    <button onclick='savenotify()'
+                            class='am-btn am-btn-default am-btn-xs am-text-primary'> 保存
+                    </button>
+                </div>
+                <p>—— 设置忘记密码邮箱</p></p>
+                <textarea id="forgetpassemail" cols="19" rows="1"></textarea>
+                <div style="text-align: right;margin-top: 10px">
+                    <button onclick='saveemail()'
+                            class='am-btn am-btn-default am-btn-xs am-text-primary'> 保存
+                    </button>
+                </div>
+                <p>—— 设置密码</p></p>
+                <textarea id="setpass" cols="19" rows="1"></textarea>
+                <div style="text-align: right;margin-top: 10px">
+                    <button onclick='savepassword()'
+                            class='am-btn am-btn-default am-btn-xs am-text-primary'> 保存
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div style="min-height: 800px" class="admin-content">
+
+        <div class="am-cf am-padding">
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong> / <small>Table</small>
+            </div>
+        </div>
+
+        <div class="am-g">
+            <div class="am-u-md-6 am-cf">
+                <div class="am-fl am-cf">
+                    <div class="am-btn-toolbar am-fl">
+                        <div class="am-btn-group am-btn-group-xs">
+                            <button onclick="showorhideaddform()" type="button" class="am-btn am-btn-default"><span
+                                    class="am-icon-plus"></span> 新增
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-u-md-3 am-cf">
+                <div class="am-fr">
+
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript">
+            function search() {
+                window.location.href = "/kaihistoryadmin?search=" + document.getElementById("searchval").value;
+            }
+        </script>
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <div class="am-form" id="addform" style="display: none;padding: 20px">
+                     <table style="border: 1px solid gray" class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                        <tr>
+                            <th class="table-title">海报</th>
+                            <th class="table-title">保存</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td>
+
+                                <img onclick="changeimg()" id="displayimg" style="width: 200px" src="static/uploads/20201204/def.png"/>
+                                <input onchange="getFilePath()" id="addimgurl"  style="width: 150px;padding: 3px;display: none"  accept="image/*" type="file"/>
+
+                            </td>
+
+                            <td>
+                                <div class="am-btn-toolbar">
+                                    <div class="am-btn-group am-btn-group-xs">
+                                        </button>
+                                        <button onclick="addPoster()"
+                                                class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+                                                class="am-icon-pencil-square-o"></span> 保存
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <script type="text/javascript">
+
+
+
+
+                            </script>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function addPoster() {
+                var addname = $("#name").val();
+                var addinfo = $("#info").val();
+                $.ajax({
+                    type: "post",
+                    url: "/setting/addposter",
+                    dataType: "json",
+                    async: false,
+                    data:{
+                        imgurl:uploadimg,
+                    },
+                    success: function (data) {
+                        picurl_data = data;
+                        console.log(data)
+                        location.reload()
+                    }
+                })
+            }
+            function showorhideaddform() {
+                console.log("switch")
+                var addform = document.getElementById("addform");
+                if (addform.style.display == "none") {
+                    addform.style.display = "";
+                } else {
+                    addform.style.display = "none";
+                }
+            }
+        </script>
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <div class="am-form">
+                    <table class="am-table am-table-striped am-table-hover table-main">
+                        <thead>
+                        <tr>
+                            <th class="table-id">id</th>
+                            <th class="table-title">海报</th>
+                            <th class="table-title">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                    <div class="am-cf">
+                        共 <span id="total"></span> 条记录
+
+                    </div>
+                    <hr/>
+                    <p>注：请及时上传数据！</p>
+                    <script type="text/javascript">
+                        function del(qishu) {
+                            console.log(qishu)
+                            var r = confirm("确定删除吗？")
+                            if (r == false) {
+                                return;
+
+                            }
+                            $.ajax({
+                                url: "/setting/delposter",
+
+                                dataType: "json",
+                                type: "post",
+                                data: {id: qishu},
+
+                                success: function (result) {
+                                    location.reload()
+                                },
+                                error: function (data) {
+                                    alert("请求出错");
+                                    location.reload()
+
+                                }
+                            });
+                        }
+
+                        function goprevpage() {
+
+                        }
+
+                        function gonextpage() {
+
+                        }
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <hr>
+    <p class="am-padding-left">© 2020 Nomansky public</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/app.js"></script>
+<script type="text/javascript">
+    $(function () {
+        console.log("error")
+        $.ajax({
+            type: "get",
+            url: "setting/getposter",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                console.log(data)
+                picurl_data = data;
+                var templi = "";
+                var arr = data.info;
+                for(var a=0;a<arr.length;a++){
+                    templi += "     <tr>\n" +
+                        "                            <th class=\"table-id\">"+arr[a].id+"</th>\n" +
+                        "                            <th class=\"table-title\" ><img style='width: 200px' src='"+arr[a].imgurl+"'></th>\n" +
+                        "                            <th class=\"table-title\"><button class='am-btn-default' onclick='del(`"+ arr[a].id +"`)'>删除</button></th>\n" +
+                        "                        </tr>"
+                }
+                $("#tbody").html(templi)
+                $("#total").html(arr.length)
+
+            }
+        })
+        $.ajax({
+            type: "get",
+            url: "email/getemail",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var templi = "";
+                document.getElementById("forgetpassemail").value = data.email.email;
+            }
+        })
+        $.ajax({
+            url: "/admin/getIsMainting",
+            dataType: "json",
+            type: "post",
+            success: function (result) {
+                if (result.code == 1) {
+                    console.log("code = 1！")
+                    $("#maintainopen").css("background", "green");
+                    $("#maintainclose").css("background", "gray");
+
+                } else if (result.code == 0) {
+                    $("#maintainopen").css("background", "gray");
+                    $("#maintainclose").css("background", "green");
+                }
+            },
+
+        });
+    });
+
+    function savenotify() {
+        $.ajax({
+            type: "post",
+            url: "notify/setNotify",
+            dataType: "json",
+            async: false,
+            data: {
+                notify: document.getElementById("notifybox").value
+            },
+            success: function (data) {
+
+                picurl_data = data;
+                console.log(data)
+                if (data.code == 1) {
+                    alert("设置成功！");
+
+                } else {
+                    alert("设置失败！" + data.info);
+                }
+            }
+        })
+    }
+
+    function saveemail() {
+        $.ajax({
+            type: "post",
+            url: "/email/setemail",
+            dataType: "json",
+            async: false,
+            data: {
+                email: document.getElementById("forgetpassemail").value
+            },
+            success: function (data) {
+
+                picurl_data = data;
+                console.log(data)
+                if (data.code == 1) {
+                    alert("设置成功！");
+
+                } else {
+                    alert("设置失败！" + data.info);
+                }
+            }
+        })
+    }
+    uploadimg="";
+    function changeimg() {
+        document.getElementById("addimgurl").click();
+    }
+
+    function getFilePath() {
+        var formData = new FormData();
+        formData.append("image", $("#addimgurl")[0].files[0]);
+        $.ajax({
+            url:'/upload/upload',
+            dataType:'json',
+            type:'POST',
+            async: false,
+            data: formData,
+            processData : false, // 使数据不做处理
+            contentType : false, // 不要设置Content-Type请求头
+            success: function(data){
+                console.log("result is")
+                console.log(data);
+                uploadimg = data.data[0];
+                console.log((posterImageurl))
+                $('#addimgurl').val('')
+                $("#displayimg").attr("src",posterImageurl);
+            },
+            error:function(response){
+                console.log("error")
+                console.log(response);
+                uploadimg = "uploads/"+response.responseText;
+                $('#addimgurl').val('')
+                $("#displayimg").attr("src","uploads/"+response.responseText);
+            }
+        });
+
+    }
+    function savepassword() {
+        $.ajax({
+            type: "post",
+            url: "/admin/resetpass",
+            dataType: "json",
+            async: false,
+            data: {
+                password: document.getElementById("setpass").value
+            },
+            success: function (data) {
+
+                if (data.code == 1) {
+                    alert("设置成功！请重新登录");
+                    window.location.href = "/admin"
+                } else {
+                    alert("设置失败！" + data.info);
+                }
+            }
+        })
+    }
+
+    function logout() {
+        $.ajax({
+            type: "post",
+            url: "/admin/logout",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                picurl_data = data;
+                console.log(data)
+                if (data.code == 1) {
+                    window.location.href = "/admin"
+                }
+            }
+        })
+    }
+
+    function gomain() {
+
+        window.location.href = "/"
+
+    }
+</script>
+
+
+<script src="build/jquery.datetimepicker.full.js"></script>
+
+<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+
+    jQuery(document).ready(function () {
+        'use strict';
+
+        jQuery('#createtime').datetimepicker({
+            datepicker: true,
+            // format: 'yy/m/d H:i:s', //设置时间格式
+            closeOnTimeSelect: true,
+            disabledDates: [],
+            defaultTime: "18:40:00",
+            step: 1,
+            timepicker: true,       //显示timepicker
+        });
+    });
+</script>
+</body>
+</html>

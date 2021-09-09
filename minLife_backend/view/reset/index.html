@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>闽生活App后台管理系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="assets/i/MinLifeAppLogo.png">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <style>
+        .header {
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 30px;
+        }
+        .header p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <hr />
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <h1>重置密码</h1>
+        <hr>
+        <div class="am-btn-group">
+
+        </div>
+
+        <form   class="am-form">
+            <label >验证码:</label>
+            <input type="text" name="code" id="code" value="">
+            <br>
+            <label >新的密码:</label>
+            <input type="password" name="password1" id="password1" value="">
+            <br>
+            <label for="password">重复密码:</label>
+            <input type="password" name="password2" id="password" value="">
+             <br />
+            <div class="am-cf" style="text-align: center">
+                <input onclick="resetpass()" name="" value="确 定" class="am-btn am-btn-primary am-btn-sm am-fl">
+             </div>
+        </form>
+        <hr>
+     </div>
+    <script>
+        function resetpass() {
+            var pass=  document.getElementById("password").value
+            var pass1=  document.getElementById("password1").value
+            var code=  document.getElementById("code").value
+
+            if(pass1 != pass) {
+                alert("两个密码不一致！");
+                return;
+            }
+
+            $.ajax({
+                url: "/reset",
+
+                dataType: "json",
+                type: "post",
+                data :{
+                    code :code ,
+                    pass : pass
+                },
+                success: function (result) {
+                    if(result.code ==2)
+                    {
+                        alert("验证码错误！");
+                    }
+                    if (result.code == 1){
+                        alert("密码已重置！");
+                        window.location.href = "http://tempvsd.andsmind.com/admin"
+
+                    }
+                },
+                error: function (data) {
+                    alert("请求出错");
+                    alert(data);
+                }
+            });
+
+        }
+    </script>
+</div>
+</body>
+</html>

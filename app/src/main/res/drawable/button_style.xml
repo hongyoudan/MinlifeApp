@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--    gradient 主体渐变-->
+    <!--    startColor开始颜色，endColor结束颜色 ，angle开始渐变的角度（值只能为90的倍数，0时为左到右渐变，90时为下到上渐变，依次逆时针类推）-->
+    <!--    stroke 边框 width 边框宽度，color 边框颜色-->
+    <!--    corners 圆角 radius 半径，0为直角-->
+    <!--    padding text值的相对位置-->
+
+    <!--按下-->
+    <item android:state_pressed="true">
+        <shape>
+            <gradient android:startColor="#f48d48" android:endColor="#f57b29"
+                android:angle="0"/>
+            <stroke android:width="1dip" android:color="#f48d48"/>
+            <corners android:radius="150dp"/>
+            <!--                <padding android:left="10dp" android:top="10dp" android:right="10dp"-->
+            <!--                    android:bottom="10dp"/>-->
+
+        </shape>
+
+    </item>
+
+    <!--获取焦点-->
+    <!--        <item android:state_focused="true">-->
+    <!--            <shape>-->
+    <!--                <gradient android:startColor="#FFFFFFFF" android:endColor="#00000000"-->
+    <!--                    android:angle="270"/>-->
+    <!--                <stroke android:width="1dip" android:color="#00000000"/>-->
+    <!--                <corners android:radius="150dp"/>-->
+    <!--&lt;!&ndash;                <padding android:left="10dp" android:top="10dp" android:right="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                    android:bottom="10dp"/>&ndash;&gt;-->
+    <!--            </shape>-->
+    <!--        </item>-->
+
+    <!--正常-->
+    <item>
+        <shape>
+            <gradient android:startColor="#f57b29" android:endColor="#fe9854"
+                android:angle="90"/>
+            <stroke android:width="1dip" android:color="#fe9854"/>
+            <corners android:radius="150dp"/>
+            <!--                <padding android:left="10dp" android:top="10dp"-->
+            <!--                    android:right="10dp" android:bottom="10dp"/>-->
+        </shape>
+    </item>
+
+</selector>

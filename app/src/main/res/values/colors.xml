@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF5000</color>
+    <color name="colorPrimaryDark">#AF3600</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!--Activity底色-->
+    <color name="color_f8f8f8">#F8F8F8</color>
+    <!--color_EBEBEB-->
+    <color name="color_eBeBeB">#EBEBEB</color>
+    <!--color_AAA-->
+    <color name="color_aaa">#AAA</color>
+    <!--color_f09556-->
+    <color name="color_f09556">#F09556</color>
+    <!--color_e4975e-->
+    <color name="color_e4975e">#E4975E</color>
+    <color name="color_2c97De">#2c97De</color>
+
+    <color name="color_edbd97">#EDBD97</color>
+
+    <!--设置checkbox样式-->
+    <style name="checkbox_style" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:colorControlActivated">@color/color_f09556</item>
+        <item name="android:colorControlNormal">@color/color_aaa</item>
+    </style>
+
+    <color name="font_black_color">#141414</color>
+    <color name="font_second_color">#666666</color>
+    <color name="font_red_color">#FF686C</color>
+    <color name="font_orange_color">#FF8E00</color>
+
+    <color name="bg_main_color">#F0F0F0</color>
+    <color name="divider_main_color">#CCC</color>
+
+    <color name="font_gray_color">#C0C0C0</color>
+
+
+    <color name="grey">#cccccc</color>
+    <color name="red">#ff0000</color>
+    <color name="orange_light">#ffffdd</color>
+
+</resources>

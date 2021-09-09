@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical"
+    tools:context=".fragment.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_style"
+        android:elevation="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kmxq"
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/search_style"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_search_09556" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="20dp"
+                        android:hint="@string/search"
+                        android:background="@color/color_edbd97"
+                        android:textColor="@color/color_f09556"
+                        android:textColorHint="@color/color_f09556"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/slidingTabLayout_FraHome"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_color="#eeeeee"
+            tl:tl_indicator_corner_radius="10dp"
+            tl:tl_indicator_height="2dp"
+            tl:tl_indicator_style="TRIANGLE"
+            tl:tl_indicator_width="10dp"
+            tl:tl_textsize="14sp" />
+
+    </LinearLayout>
+
+    <com.example.minlifeapp.view.FixedViewPager
+        android:id="@+id/fixedViewPager_FraHome"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+</LinearLayout>
