@@ -71,7 +71,7 @@ File -> Open -> MinLifeApp -> Run'app'
 | <img src="https://img-blog.csdnimg.cn/c8a47439bd814741bd1a186e79939280.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA57u_6Iy25ZOl5ZOl,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"></img> | <img src="https://img-blog.csdnimg.cn/c7bfe638df6f41978f30f1951dc608b1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA57u_6Iy25ZOl5ZOl,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"></img> | <img src="https://img-blog.csdnimg.cn/f43169f1b8dc473ea106512c7d48d037.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA57u_6Iy25ZOl5ZOl,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"></img> | <img src="https://img-blog.csdnimg.cn/66376cee7874486cbfde9fc477d504d8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA57u_6Iy25ZOl5ZOl,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"></img> |
 | <img src="https://img-blog.csdnimg.cn/2a4fd23b497f41258b4d675a6db11297.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA57u_6Iy25ZOl5ZOl,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"></img> | <img src="https://img-blog.csdnimg.cn/a5d8b40af871483e9e7bd3b71ba5a2bc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA57u_6Iy25ZOl5ZOl,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center"></img> |                                                              |                                                              |
 
-## 五、项目演示
+
 
 
 
