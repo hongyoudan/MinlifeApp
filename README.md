@@ -27,13 +27,13 @@ ThinkPHP、MySQL、Html、JQuary、JavaScript、AJAX、Okhttp、Gson等。
 
 ### 3.1 最小开发环境
 
-JDK>=1.8
+JDK 1.8
 
-MySQL>=5.7.31
+MySQL 5.7.31
 
-Android Studio>=4.0.0
+Android Studio 4.2.1
 
-ThinkPHP>=6.0.0
+ThinkPHP 6.0.8
 
 ### 3.2 导入数据表
 
